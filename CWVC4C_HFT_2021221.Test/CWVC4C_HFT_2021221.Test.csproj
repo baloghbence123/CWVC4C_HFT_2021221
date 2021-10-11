@@ -4,4 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CWVC4C_HFT_2021221.Logic\CWVC4C_HFT_2021221.Logic.csproj" />
+    <ProjectReference Include="..\CWVC4C_HFT_2021221.Models\CWVC4C_HFT_2021221.Models.csproj" />
+    <ProjectReference Include="..\CWVC4C_HFT_2021221.Repository\CWVC4C_HFT_2021221.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
