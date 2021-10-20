@@ -47,7 +47,15 @@ namespace CWVC4C_HFT_2021221.Logic
             else throw new ArgumentException("Name is required");
 
         }
-
+        public IEnumerable<KeyValuePair<string,double>> TheStrongestElementAbility()
+        {
+            return from x in elementRepository.ReadAll()
+                   from y in x.Heroes
+                   from z in y.Abilities
+                   group z by z.Hero.Element.Name into g
+                   orderby g.Max(t=>t.DMG) descending
+                   select new KeyValuePair<string, double>(g.Key,g.Max(t=>t.DMG));
+        }
 
 
     }
