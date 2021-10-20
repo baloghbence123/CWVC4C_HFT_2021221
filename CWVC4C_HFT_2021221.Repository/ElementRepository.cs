@@ -35,8 +35,7 @@ namespace CWVC4C_HFT_2021221.Repository
         }
         public void Update(Element element)
         {
-            var oldelement = Read(element.ElementId);
-            oldelement.Heroes = element.Heroes;
+            var oldelement = Read(element.ElementId);            
             oldelement.Name = element.Name;
             db.SaveChanges();
         }

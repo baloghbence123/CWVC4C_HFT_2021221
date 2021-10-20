@@ -38,8 +38,7 @@ namespace CWVC4C_HFT_2021221.Repository
         public void Update(Ability ability)
         {
             var oldability = Read(ability.AbilityId);
-            oldability.DMG = ability.DMG;
-            oldability.Hero = ability.Hero;
+            oldability.DMG = ability.DMG;            
             oldability.HeroId = ability.HeroId;
             oldability.ManaCost = ability.ManaCost;
             oldability.Name = ability.Name;

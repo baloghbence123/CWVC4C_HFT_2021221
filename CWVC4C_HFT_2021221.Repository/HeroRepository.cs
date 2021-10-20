@@ -37,11 +37,10 @@ namespace CWVC4C_HFT_2021221.Repository
         {
             var oldHero = Read(hero.HeroId);
             oldHero.Name = hero.Name;
-            oldHero.ElementId = hero.ElementId;
-            oldHero.Element = hero.Element;
+            oldHero.ElementId = hero.ElementId;            
             oldHero.DefensePower = hero.DefensePower;
             oldHero.AttackPower = hero.AttackPower;
-            oldHero.Abilities = hero.Abilities;
+            
             db.SaveChanges();
 
         }
