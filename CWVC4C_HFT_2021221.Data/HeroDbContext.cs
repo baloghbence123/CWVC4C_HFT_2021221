@@ -19,7 +19,7 @@ namespace CWVC4C_HFT_2021221.Data
         {
             if (!builder.IsConfigured)
             {
-                string conP = @"Data Source=(localDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\localDb.mdf;Integrated Security=True";
+                string conP = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\localDb.mdf;Integrated Security=True";
                 builder.UseLazyLoadingProxies().UseSqlServer(conP);
             }
         }
