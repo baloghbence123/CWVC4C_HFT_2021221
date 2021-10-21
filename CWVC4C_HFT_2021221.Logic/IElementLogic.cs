@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CWVC4C_HFT_2021221.Logic
 {
-    interface IElementLogic
+   public interface IElementLogic
     {
         void Create(Element hero);
         void Delete(int id);

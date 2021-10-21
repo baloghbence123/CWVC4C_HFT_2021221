@@ -52,7 +52,7 @@ namespace CWVC4C_HFT_2021221.Logic
             return from x in elementRepository.ReadAll()
                    from y in x.Heroes
                    from z in y.Abilities
-                   group z by z.Hero.Element.Name into g
+                   group z by z.Hero.Element.Name into g                   
                    orderby g.Max(t=>t.DMG) descending
                    select new KeyValuePair<string, double>(g.Key,g.Max(t=>t.DMG));
         }

@@ -22,7 +22,7 @@ namespace CWVC4C_HFT_2021221.Logic
 
         public void Create(Ability ability)
         {
-            if (ability.Name!=null && ability.HeroId>-1 && ability.ManaCost>-1 && ability.DMG>-1)
+            if (ability.Name!=null && ability.HeroId > -1 && ability.ManaCost > -1 && ability.DMG > -1)
             {
                 abilityRepo.Create(ability);
             }
@@ -75,7 +75,7 @@ namespace CWVC4C_HFT_2021221.Logic
                    group x by x.Hero.Name into g
                    select new KeyValuePair<string, double>(g.Key, g.Average(t => t.ManaCost));
         }
-        public IEnumerable<KeyValuePair<string, double>> TheStrongestElementAbility()
+        public IEnumerable<KeyValuePair<string, double>> TheStrongestElementByAbility()
         {
             return (from x in abilityRepo.ReadAll()
                     group x by x.Hero.Element.Name into g

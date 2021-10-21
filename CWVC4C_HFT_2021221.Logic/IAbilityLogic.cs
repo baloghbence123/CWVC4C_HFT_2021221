@@ -12,7 +12,7 @@ namespace CWVC4C_HFT_2021221.Logic
         void Delete(int id);
         Ability Read(int id);
         IEnumerable<Ability> ReadAll();
-        IEnumerable<KeyValuePair<string, double>> TheStrongestElementAbility();
+        IEnumerable<KeyValuePair<string, double>> TheStrongestElementByAbility();
         void Update(Ability ability);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CWVC4C_HFT_2021221.Logic
 {
-    interface IHeroLogic
+   public interface IHeroLogic
     {
         double AvgHeroDef();
         IEnumerable<KeyValuePair<string, double>> AVGHeroDefByElements();
