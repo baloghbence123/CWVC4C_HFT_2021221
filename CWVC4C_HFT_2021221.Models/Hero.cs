@@ -37,7 +37,10 @@ namespace CWVC4C_HFT_2021221.Models
         }
 
 
-
+        public override string ToString()
+        {
+            return "Hero ID: " + HeroId + " |Name: " + Name + " |Attack power: " + AttackPower + " |DefensePower:" + ElementId + " |ElementId: " + ElementId;                ;
+        }
 
     }
 }

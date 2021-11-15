@@ -26,6 +26,10 @@ namespace CWVC4C_HFT_2021221.Models
         [ForeignKey(nameof(Hero))]
         public int HeroId { get; set; }
 
+        public override string ToString()
+        {
+            return "Ability ID: " + AbilityId + " |Name: " + Name + " |Damage: " + DMG+" |HeroId: "+HeroId;
+        }
 
     }
 }

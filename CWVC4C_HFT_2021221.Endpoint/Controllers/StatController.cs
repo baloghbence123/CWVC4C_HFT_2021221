@@ -65,6 +65,7 @@ namespace CWVC4C_HFT_2021221.Endpoint.Controllers
         [HttpGet]
         public double AvgHeroPower()
         {
+
             return hl.AvgHeroPower();
         }
 

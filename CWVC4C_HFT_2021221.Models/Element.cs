@@ -25,5 +25,10 @@ namespace CWVC4C_HFT_2021221.Models
             Heroes = new HashSet<Hero>();
         }
 
+        public override string ToString()
+        {
+            return "Element ID: " + ElementId + " |Name: " + Name;
+        }
+
     }
 }
