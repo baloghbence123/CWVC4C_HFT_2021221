@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CWVC4C_HFT_2021221.Models
@@ -21,6 +22,7 @@ namespace CWVC4C_HFT_2021221.Models
         public int DefensePower { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Element Element { get; set; }
 
         [ForeignKey(nameof(Element))]
