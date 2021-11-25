@@ -24,7 +24,15 @@ namespace CWVC4C_HFT_2021221.Client.MenuItems
                 Ki?.Invoke("7.Average hero defensive point by element");
                 Ki?.Invoke("8.Average hero power point by element");
 
-                response=int.Parse(Be?.Invoke());
+                try
+                {
+                    response = int.Parse(Be?.Invoke());
+                }
+                catch (Exception)
+                {
+
+                    response = -1;
+                }
                 clear?.Invoke();
                 if (response==1)
                 {
@@ -90,11 +98,13 @@ namespace CWVC4C_HFT_2021221.Client.MenuItems
                 else
                 {
                     Ki?.Invoke("Maybe try it one more time.");
+                    
                 }
                 if (response != 0)
                 {
                     Ki?.Invoke("");
                 }
+                
             }
         }
     }

@@ -18,7 +18,15 @@ namespace CWVC4C_HFT_2021221.Client.MenuItems
                 Ki?.Invoke("2.Hero");
                 Ki?.Invoke("3.Ability");
                 Ki?.Invoke("Choose a number:");
-                resp = int.Parse(Be?.Invoke());
+                try
+                {
+                    resp = int.Parse(Be?.Invoke());
+                }
+                catch (System.Exception)
+                {
+
+                    resp = -1;
+                }
                 clear?.Invoke();
                 if (resp == 1)
                 {
@@ -82,6 +90,7 @@ namespace CWVC4C_HFT_2021221.Client.MenuItems
                 else
                 {
                     Ki?.Invoke("Maybe try it one more time.");
+                    
                 }
                 if (resp!=0)
                 {

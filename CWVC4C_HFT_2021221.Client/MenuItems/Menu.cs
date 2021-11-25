@@ -18,7 +18,7 @@ namespace CWVC4C_HFT_2021221.Client.MenuItems
 
         public void Start()
         {
-            int response=-1;
+            int response = -1;
 
             RestService rest = new RestService("http://localhost:29868");
 
@@ -32,6 +32,8 @@ namespace CWVC4C_HFT_2021221.Client.MenuItems
 
             while (response!=0)
             {
+                
+                Clear?.Invoke();
                 Ki?.Invoke("--Welcome to my menu!--");
                 Ki?.Invoke("1. Listing");
                 Ki?.Invoke("2. Search");
@@ -42,7 +44,17 @@ namespace CWVC4C_HFT_2021221.Client.MenuItems
                 Ki?.Invoke("0. Exit");
 
                 Ki?.Invoke("Choose a number:");
-                response = int.Parse(Be?.Invoke());
+                try
+                {
+                    response = int.Parse(Be?.Invoke());
+                }
+                catch (Exception)
+                {
+
+                    Ki?.Invoke("Try to choose a number!");
+                    response = -1;
+                }
+                
                 if (response==1)
                 {
                     Clear?.Invoke();
