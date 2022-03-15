@@ -16,7 +16,7 @@ using System.Windows;
     {
         HttpClient client;
 
-        public RestService(string baseurl, string pingableEndpoint = "swagger")
+        public RestService(string baseurl, string pingableEndpoint = "Hero")
         {
             bool isOk = false;
             do

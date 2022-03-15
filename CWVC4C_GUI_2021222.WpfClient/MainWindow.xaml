@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CWVC4C_GUI_2021222.WpfClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Hero Editor" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Heroes}" SelectedItem="{Binding SelectedHero}" Grid.Column="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}"/>
+                        <Label Content="{Binding AttackPower}" ContentStringFormat="PWR: {0}"/>
+                        <Label Content="{Binding DefensePower}" ContentStringFormat="DEF: {0}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="Name" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedHero.Name}" Padding="8" />
+            
+            <Label Content="Attack Power" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedHero.AttackPower}" Padding="8" />
+            
+            <Label Content="Defense Power" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedHero.DefensePower}" Padding="8"/>
+            
+            <Label Content="Element ID" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedHero.ElementId}" Padding="8" Margin="0,0,0,10"/>
+            
+            <Button Content="Create Actor" Command="{Binding CreateHeroCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Actor" Command="{Binding DeleteHeroCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Actor" Command="{Binding UpdateHeroCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
 
     </Grid>
 </Window>
