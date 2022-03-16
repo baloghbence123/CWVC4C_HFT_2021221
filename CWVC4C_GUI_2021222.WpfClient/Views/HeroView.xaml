@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="CWVC4C_GUI_2021222.WpfClient.Views.HeroView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CWVC4C_GUI_2021222.WpfClient.Views"             
+             xmlns:vm="clr-namespace:CWVC4C_GUI_2021222.WpfClient.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+         <vm:HeroesViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Heroes}" SelectedItem="{Binding SelectedHero}" Grid.Column="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}"/>
+                        <Label Content="{Binding AttackPower}" ContentStringFormat="PWR: {0}"/>
+                        <Label Content="{Binding DefensePower}" ContentStringFormat="DEF: {0}"/>
+                        <Label Content="{Binding Element}" ContentStringFormat="Element: {0}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="Name" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedHero.Name}" Padding="8" />
+
+            <Label Content="Attack Power" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedHero.AttackPower}" Padding="8" />
+
+            <Label Content="Defense Power" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedHero.DefensePower}" Padding="8"/>
+
+            <Label Content="Element ID" Background="LightBlue" Padding="5" />
+            <ComboBox ItemsSource="{Binding elements}" SelectedItem="{Binding SelectedHero.ElementId}" Padding="8" Margin="0,0,0,10" SelectedIndex="0">                
+            </ComboBox>
+            
+
+
+            
+            <Button Content="Create Hero" Command="{Binding CreateHeroCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Hero" Command="{Binding DeleteHeroCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Hero" Command="{Binding UpdateHeroCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
