@@ -12,8 +12,11 @@
         <DataTemplate x:Name="Heroes" DataType="{x:Type vms:HeroesViewModel}">
             <views:HeroView DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="Abilites" DataType="{x:Type vms:ElementsViewModel}">
+        <DataTemplate x:Name="Elements" DataType="{x:Type vms:ElementsViewModel}">
             <views:ElementView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="Abilities" DataType="{x:Type vms:AbilitiesViewModel}">
+            <views:AbilityView DataContext="{Binding}"/>
         </DataTemplate>
         
     </Window.Resources>
@@ -35,7 +38,7 @@
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="3" Background="Gray">
             <Button Content="Elements" Height="30" Margin="3,8,3,8" Click="ElementView"/>
             <Button Content="Heroes" Height="30" Margin="3,8,3,8" Click="HeroesView"/>
-            <Button Content="Abilities" Height="30" Margin="3,8,3,8"/>
+            <Button Content="Abilities" Height="30" Margin="3,8,3,8" Click="AbilitiesView"/>
 
         </StackPanel>
 

@@ -35,5 +35,10 @@ namespace CWVC4C_GUI_2021222.WpfClient
         {
             DataContext = new ElementsViewModel();
         }
+
+        private void AbilitiesView(object sender, RoutedEventArgs e)
+        {
+            DataContext = new AbilitiesViewModel();
+        }
     }
 }
