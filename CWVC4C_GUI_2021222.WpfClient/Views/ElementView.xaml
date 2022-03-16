@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="CWVC4C_GUI_2021222.WpfClient.Views.ElementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CWVC4C_GUI_2021222.WpfClient.Views"
+             xmlns:vms="clr-namespace:CWVC4C_GUI_2021222.WpfClient.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vms:ElementsViewModel/>
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Element}" SelectedItem="{Binding SelectedElement}" Grid.Column="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding ElementId}"/>
+                        <Label Content="{Binding Name}"/>                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="Name" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedElement.Name}" Padding="8" />
+
+
+            <Button Content="Create Element" Command="{Binding CreateElementCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Element" Command="{Binding DeleteElementCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Element" Command="{Binding UpdateElementCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

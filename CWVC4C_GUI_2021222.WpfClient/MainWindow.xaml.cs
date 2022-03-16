@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CWVC4C_GUI_2021222.WpfClient.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace CWVC4C_GUI_2021222.WpfClient
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void HeroesView(object sender, RoutedEventArgs e)
+        {
+            DataContext = new HeroesViewModel();
+        }
+
+        private void ElementView(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ElementsViewModel();
         }
     }
 }
