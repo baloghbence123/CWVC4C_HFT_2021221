@@ -1,4 +1,5 @@
 using CWVC4C_HFT_2021221.Data;
+using CWVC4C_HFT_2021221.Endpoint.Services;
 using CWVC4C_HFT_2021221.Logic;
 using CWVC4C_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -29,7 +30,7 @@ namespace CWVC4C_HFT_2021221.Endpoint
             services.AddTransient<IElementLogic, ElementLogic>();
             services.AddTransient<IElementRepository, ElementRepository>();
 
-
+            services.AddSignalR();
 
             services.AddTransient<HeroDbContext, HeroDbContext>();
 
@@ -49,6 +50,7 @@ namespace CWVC4C_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
