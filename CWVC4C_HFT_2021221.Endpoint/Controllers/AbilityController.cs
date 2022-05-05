@@ -1,6 +1,8 @@
-﻿using CWVC4C_HFT_2021221.Logic;
+﻿using CWVC4C_HFT_2021221.Endpoint.Services;
+using CWVC4C_HFT_2021221.Logic;
 using CWVC4C_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +18,11 @@ namespace CWVC4C_HFT_2021221.Endpoint.Controllers
     {
 
         IAbilityLogic al;
-
-        public AbilityController(IAbilityLogic al)
+        IHubContext<SignalRHub> hub;
+        public AbilityController(IAbilityLogic al, IHubContext<SignalRHub> hub)
         {
             this.al = al;
+            this.hub = hub;
         }
 
         // GET: /ability
@@ -41,6 +44,7 @@ namespace CWVC4C_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Ability value)
         {
             al.Create(value);
+            this.hub.Clients.All.SendAsync("AbilityCreated", value);
         }
 
         // PUT /ability
@@ -48,13 +52,19 @@ namespace CWVC4C_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] Ability value)
         {
             al.Update(value);
+            this.hub.Clients.All.SendAsync("AbilityUpdated", value);
         }
 
         // DELETE ability/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+           
+
+            var abilityToDelete = this.al.Read(id);
+
             al.Delete(id);
+            this.hub.Clients.All.SendAsync("AbilityDeleted", abilityToDelete);
         }
     }
 }

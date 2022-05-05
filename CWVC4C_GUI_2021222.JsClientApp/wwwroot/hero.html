@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hero UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <nav>
+        <a href="index.html">Element oldal</a>
+        <a href="ability.html"> Ability oldal</a>
+    </nav>
+
+    <h1>Hero Catalog</h1>
+
+    <div id="formdiv">
+        <label>Hero Name</label>
+        <input type="text" id="heroname" />
+        <label>Hero Power</label>
+        <input type="number" id="heropwr" />
+        <label>Hero Defense</label>
+        <input type="number" id="herodef" />
+        <label>Heros element ID</label>
+        <input type="number" id="heroeselementid" />
+
+        <button type="button" onclick="createEl()">Add Hero</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Hero Name</label>
+        <input type="text" id="heronametoupdate" />
+        <label>Hero Power</label>
+        <input type="number" id="heropwrtoupdate" />
+        <label>Hero Defense</label>
+        <input type="number" id="herodeftoupdate" />
+        <label>Heros element ID</label>
+        <input type="number" id="heroeselementidtoupdate" />
+
+        <button type="button" onclick="updateEl()">Update Hero</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Attack Power</th>
+                <th>Defense Power</th>
+                <th>Element Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="heroScript.js"></script>
+</body>
+</html>

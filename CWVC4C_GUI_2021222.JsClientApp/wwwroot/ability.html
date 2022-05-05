@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ability UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Element oldal</a>
+        <a href="hero.html">Hero oldal</a>
+    </nav>
+    <h1>Ability Catalog</h1>
+
+    <div id="formdiv">
+        <label>Ability Name</label>
+        <input type="text" id="abilityname" />
+        <label>Ability Manacost</label>
+        <input type="number" id="abilitymana" />
+        <label>Ability damage</label>
+        <input type="number" id="abilitypwr" />
+        <label>Abilities hero ID</label>
+        <input type="number" id="abilityelementid" />
+
+        <button type="button" onclick="createEl()">Add Ability</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Ability Name</label>
+        <input type="text" id="abilitynametoupdate" />
+        <label>Ability Manacost</label>
+        <input type="number" id="abilitymanatoupdate" />
+        <label>Ability damage</label>
+        <input type="number" id="abilitypwrtoupdate" />
+        <label>Ability hero ID</label>
+        <input type="number" id="abilityelementidtoupdate" />
+
+        <button type="button" onclick="updateEl()">Update Ability</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Mana Cost</th>
+                <th>Attack Power</th>
+                <th>Hero Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="abilityScript.js"></script>
+</body>
+</html>

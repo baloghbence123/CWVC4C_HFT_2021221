@@ -24,13 +24,15 @@ namespace CWVC4C_GUI_2021222.WpfClient.ViewModels
             {
                 if (value != null)
                 {
-                    selectedElement = new CWVC4C_HFT_2021221.Models.Element()
+                    selectedElement = new Element()
                     {
+                        ElementId=value.ElementId,
                        Name=value.Name,
                        
                     };
                     OnPropertyChanged();
                     (DeleteElementCommand as RelayCommand).NotifyCanExecuteChanged();
+                    ;
                 }
 
 
@@ -52,7 +54,7 @@ namespace CWVC4C_GUI_2021222.WpfClient.ViewModels
 
         public ElementsViewModel()
         {
-
+            
             if (!IsInDesignMode)
             {
                 Element = new RestCollection<Element>("http://localhost:29868/", "Element", "hub");
@@ -62,13 +64,16 @@ namespace CWVC4C_GUI_2021222.WpfClient.ViewModels
 
                     Element.Add(new CWVC4C_HFT_2021221.Models.Element()
                     {
+
                         Name = SelectedElement.Name
                     });
                 });
 
+                
                 DeleteElementCommand = new RelayCommand(
                     () => Element.Delete(SelectedElement.ElementId),
                     () => SelectedElement != null
+                
                 );
 
                 UpdateElementCommand = new RelayCommand(() =>

@@ -47,6 +47,8 @@ namespace CWVC4C_HFT_2021221.Endpoint
 
             app.UseRouting();
 
+            app.UseCors(x=> x.AllowCredentials().AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:12453"));
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

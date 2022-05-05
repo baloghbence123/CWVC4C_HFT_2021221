@@ -29,8 +29,8 @@ namespace CWVC4C_GUI_2021222.WpfClient.ViewModels
                 {
                     selectedHero = new Hero()
                     {
-                        Name = value.Name,
                         HeroId = value.HeroId,
+                        Name = value.Name,
                         Abilities = value.Abilities,
                         AttackPower = value.AttackPower,
                         DefensePower = value.DefensePower,
@@ -60,7 +60,7 @@ namespace CWVC4C_GUI_2021222.WpfClient.ViewModels
 
         public HeroesViewModel()
         {
-
+            
             if (!IsInDesignMode)
             {
                 Heroes = new RestCollection<Hero>("http://localhost:29868/", "Hero", "hub");

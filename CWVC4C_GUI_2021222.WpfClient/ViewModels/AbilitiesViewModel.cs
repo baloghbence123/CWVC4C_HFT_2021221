@@ -31,6 +31,7 @@ namespace CWVC4C_GUI_2021222.WpfClient.ViewModels
                 {
                     selectedAbility = new Ability()
                     {
+                        AbilityId =value.AbilityId,
                         Name = value.Name,
                         DMG = value.DMG,
                         HeroId = value.HeroId,
@@ -56,6 +57,7 @@ namespace CWVC4C_GUI_2021222.WpfClient.ViewModels
 
         public AbilitiesViewModel()
         {
+            
             if (!IsInDesignMode)
             {
                 Abilities = new RestCollection<Ability>("http://localhost:29868/", "Ability", "hub");
